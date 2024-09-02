@@ -4,7 +4,7 @@
 - **Floating-point types** &rarr; they can represent real values such as 3.14 orf 0.178, with different levels of precision based on which of the three floating-point types is used.
 - **Boolean type** &rarr; known as bool in c++ and is represented by either true or false.
 | Group | Type names | Notes |
-| ----- | ----------- | ----- |
+| ----- | ---------- | ----- |
 | Character Types | char| exactly one byte in size. 8 bits at least |
 | Character Types | char16_t | not smaller than char. at least 16 bits|
 | Character Types | char32_t | not smaller than char16_t. at least 32 bits|
