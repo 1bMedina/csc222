@@ -3,6 +3,7 @@
 - **Numerical integer types** &rarr; they store whole number values such as 1 or 17. they can be **signed** or **unsigned** depending on if they support negative values.
 - **Floating-point types** &rarr; they can represent real values such as 3.14 orf 0.178, with different levels of precision based on which of the three floating-point types is used.
 - **Boolean type** &rarr; known as bool in c++ and is represented by either true or false.
+
 | Group                   | Type names            | Notes                                           |
 |-------------------------|-----------------------|-------------------------------------------------|
 | Character Types         | char                  | exactly one byte in size. 8 bits at least       |
