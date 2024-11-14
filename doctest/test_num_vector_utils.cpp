@@ -25,3 +25,8 @@ TEST_CASE("3 - Testing render_num_vector - empty vector"){
 	string expected = "";
 	CHECK(numstr == expected);
 }
+
+TEST_CASE("Testing num_vector_sum") {
+    vector<int> nums = {1, 3, 7};
+    CHECK(11 == num_vector_sum(nums));
+}
