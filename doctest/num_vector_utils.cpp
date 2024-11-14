@@ -3,6 +3,6 @@
 using namespace std;
 
 string render_num_vector(const vector<int>&) {
-    string s = "1 3 7";
+    string s = "";
     return s;
 }
