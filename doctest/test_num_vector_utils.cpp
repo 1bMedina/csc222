@@ -58,4 +58,8 @@ TEST_CASE("Testing nums_between function") {
 }
 
 TEST_CASE("Testing mean") {
+	vector<double> nums = {4.0, 7.4, 8.1, 9.3, 1.2};
+	vector<double> means = mean(nums);
+	string expected = "6";
+	CHECK(render_num_vector_d(means) == expected);
 }

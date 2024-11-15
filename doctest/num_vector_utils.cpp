@@ -11,6 +11,15 @@ string render_num_vector(const vector<int>& v) {
 	return str;
 }
 
+string render_num_vector_d(const vector<double>& v) {
+        string s = "", str;
+        for (double i = 0; i < v.size(); i++) {
+                s += to_string(v[i]) + " ";
+}
+        str = s.substr(0, s.size()-1);
+        return str;
+}
+
 int num_vector_sum(const vector<int>& v) {
 	int nums = 0;
 	for(int i = 0; i < sizeof(v); i++){
@@ -62,5 +71,10 @@ vector<int> nums_between(const vector<int>& v, int n1, int n2) {
 			s.push_back(v[i]);
 }
 }
+	return s;
+}
+
+vector<double> mean(const vector<double>& v) {
+	vector<double> s;
 	return s;
 }
