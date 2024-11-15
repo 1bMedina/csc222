@@ -40,3 +40,8 @@ vector<int>  only_evens(const vector<int>& v) {
 
 	return s;
 }
+
+vector<int> only_odds(const vector<int>& v){
+	vector<int> s;
+	return s;	
+}
