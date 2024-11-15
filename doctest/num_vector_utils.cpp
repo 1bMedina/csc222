@@ -55,6 +55,12 @@ vector<int> only_odds(const vector<int>& v){
 
 vector<int> nums_between(const vector<int>& v, int n1, int n2) {
 	vector<int> s;
+	int check;
+	for( int i = 0; i < v.size(); i++) {
+		check = v[i] >= n1 and v[i] <= n2;
+		if( check == 1) {
+			s.push_back(v[i]);
+}
+}
 	return s;
-
 }
