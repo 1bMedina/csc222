@@ -37,3 +37,10 @@ string Time::toString(){
     return hstr + ":" + mstr + ":" + sstr;
 
 }
+
+Time::Time(int hour, int minute){
+    this -> hour = minute/60;
+    minute = hour*60;
+    this -> minute = minute;
+    this -> second = 0;
+}

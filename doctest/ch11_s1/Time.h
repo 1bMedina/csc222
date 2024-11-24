@@ -11,6 +11,7 @@ struct Time {
     Time(int, int, int);
     Time(int);
     Time();
+    Time(int, int);
 
     //functions
     string toString();
