@@ -7,7 +7,7 @@ struct Face {
     string getEmotion();
     string setEmotion(string getEmotion);
 
-    int happiness;
+    int happiness; //happiness on a scale 0-10
 
     Face(int);
 };
