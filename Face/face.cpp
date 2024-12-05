@@ -3,7 +3,7 @@
 
 using namespace std;
 
-vector<string> FACE_LIST = {
+vector<string> Emoticon::FACE_LIST = {
     "(╯'□')╯︵ ┻━┻", 
     "(｡·́︿·̀｡)", 
     "(ᵕ—_—)", 
@@ -16,8 +16,7 @@ vector<string> FACE_LIST = {
 };
 
 string Emoticon::to_string(){
-    string a = "";
-    return a;
+    return FACE_LIST[happiness];
 }
 
 Emoticon::Emoticon(int happiness){
