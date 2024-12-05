@@ -16,3 +16,9 @@ TEST_CASE("Test can make emoticon happier"){
     face.make_happier();
     CHECK(face.happiness == 1);
 }
+
+TEST_CASE("Test can make emoticon sadder"){
+    Emoticon face = Emoticon(1);
+    face.make_sadder();
+    CHECK(face.happiness == 0);
+}
