@@ -22,3 +22,7 @@ string Emoticon::to_string(){
 Emoticon::Emoticon(int happiness){
     this->happiness = happiness;
 }
+
+void Emoticon::make_happier(){
+    
+}
