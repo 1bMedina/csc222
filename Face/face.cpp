@@ -29,6 +29,7 @@ void Emoticon::make_happier(){
 }
 
 void Emoticon::make_sadder(){
-    
+    this->happiness--;
+    if(this->happiness < 0) this->happiness = 0;
 }
 
