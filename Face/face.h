@@ -3,9 +3,10 @@
 using namespace std;
 
 struct Emoticon {
+    static vector<string> FACE_LIST;
     string to_string();
     string getEmotion();
-    string setEmotion(string getEmotion);
+    void setEmotion(string getEmotion);
 
     int happiness; //happiness on a scale 0-9
 
