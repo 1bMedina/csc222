@@ -8,6 +8,6 @@ Fraction::Fraction(int n, int d){
 }
 
 Fraction::Fraction(){
-    numerator = 1;
-    denominator = 0;
+    numerator = 0;
+    denominator = 1;
 }
