@@ -13,7 +13,13 @@ Card::Card(int s, int r){
     rank = r;
 }
 
+vector<string> suit_strings = {"None", "Clubs", "Diamonds",
+                                   "Hearts", "Spades"};
+vector<string> rank_strings = {"Joker", "Ace", "2", "3", "4", "5", "6",
+                                   "7", "8", "9", "10", "Jack", "Queen",
+                                   "King"};
+
 string Card::to_string() const {
-    string s = "0";
-    return s;
+    if (rank == 0) return rank_strings[rank];
+    return rank_strings[rank] + " of " + suit_strings[suit];
 }
