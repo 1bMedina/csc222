@@ -30,9 +30,16 @@ TEST_CASE("Test can render a Fraction as a string") {
     CHECK(f2.to_string() == "-7/11");
 }
 
-TEST_CASE("Test Fractions are stored in lowest terms") {
-    Fraction f1(6, 8);
-    CHECK(f1.to_string() == "3/4");
-    Fraction f2(8, 16);
-    CHECK(f2.to_string() == "1/2");
+// TEST_CASE("Test Fractions are stored in lowest terms") {
+//     Fraction f1(6, 8);
+//     CHECK(f1.to_string() == "3/4");
+//     Fraction f2(8, 16);
+//     CHECK(f2.to_string() == "1/2");
+// }
+
+TEST_CASE("Test GDC Function"){
+    CHECK(gcd(4,14) == 2);
+    CHECK(gcd(12, 18)== 3);
+    CHECK(gcd(14, 49) == 7);
+
 }

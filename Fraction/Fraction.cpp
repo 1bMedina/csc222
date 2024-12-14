@@ -23,3 +23,7 @@ Fraction::Fraction(string s){
 string Fraction::to_string(){
     return ::to_string(numerator) + "/" + ::to_string(denominator);
 }
+
+int gcd(int n, int d){
+    return 0;
+}

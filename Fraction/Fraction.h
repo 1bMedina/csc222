@@ -12,3 +12,5 @@ struct Fraction {
     string to_string();
 
 };
+
+int gcd(int n, int d);
