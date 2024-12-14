@@ -37,9 +37,9 @@ TEST_CASE("Test can render a Fraction as a string") {
 //     CHECK(f2.to_string() == "1/2");
 // }
 
-TEST_CASE("Test GDC Function"){
+TEST_CASE("Test GCD Function"){
     CHECK(gcd(4,14) == 2);
-    CHECK(gcd(12, 18)== 3);
+    CHECK(gcd(12, 18)== 6);
     CHECK(gcd(14, 49) == 7);
 
 }

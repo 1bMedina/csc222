@@ -25,5 +25,6 @@ string Fraction::to_string(){
 }
 
 int gcd(int n, int d){
-    return 0;
+    if(n == 0) return d;
+    return gcd(d%n, n);
 }
