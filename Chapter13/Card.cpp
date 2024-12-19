@@ -1,12 +1,20 @@
 #include <iostream>
 #include <string>
+#include <vector>
 #include "Card.h"
 using namespace std;
 
+Card::Card() {
 
-Card::Card(Suit s, Rank r){
 }
 
+Card::Card(int s, int r) {
+
+}
+
+Card::Card(Suit s, Rank r) : suit(s), rank(r) {
+ 
+}
 
 
 vector<string> suit_strings = {"None", "Clubs", "Diamonds",
@@ -46,8 +54,7 @@ bool Card::operator!=(const Card& c2) const {
     return !(this->operator==(c2));
 }
 
-vector<Card> build_deck()
-{
+vector<Card> build_deck() {
     vector<Card> deck(52);
     int i = 0;
     for (Suit suit = CLUBS; suit <= SPADES; suit = Suit(suit+1)) {
