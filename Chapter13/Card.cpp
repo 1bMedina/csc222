@@ -25,7 +25,7 @@ string Card::to_string() const {
 }
 
 bool Card::operator<(const Card& c) const{
-    return (rank == c.rank && suit == c.suit);
+    return (rank == c.rank || suit == c.suit);
 }
 
 bool Card::operator>(const Card& c) const {
