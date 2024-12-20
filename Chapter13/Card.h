@@ -15,17 +15,9 @@ struct Card {
    Suit suit;
    
    Card();
-   Card(int s, int r);
    Card(Suit s, Rank r);
 
    string to_string() const;
-
-   bool operator<(const Card&) const;
-   bool operator<=(const Card&) const;
-   bool operator>=(const Card&) const;
-   bool operator==(const Card&) const;
-   bool operator!=(const Card&) const;
-   bool operator>(const Card&) const;
    
    static const int NONE = 0;
    static const int CLUBS = 1;
