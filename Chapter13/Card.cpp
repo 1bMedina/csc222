@@ -24,7 +24,7 @@ string Card::to_string() const {
     return rank_strings[rank] + " of " + suit_strings[suit];
 }
 
-bool Card::operator<(const Card& c) const{
+bool Card::operator<(const Card& c) const {
     return (rank == c.rank || suit == c.suit);
 }
 
@@ -34,11 +34,11 @@ bool Card::operator>(const Card& c) const {
     else return rank > c.rank;
 }
 
-bool Card::operator<=(const Card& c) const{
+bool Card::operator<=(const Card& c) const {
     return !(*this > c);
 }
 
-bool Card::operator>=(const Card& c) const{
+bool Card::operator>=(const Card& c) const {
     return (*this > c) || (*this == c);
 }
 
@@ -61,4 +61,29 @@ vector<Card> build_deck() {
         }
     }
     return deck;
+}
+
+Deck::Deck(int size) {
+    vector<Card> temp(size);
+    cards = temp;
+}
+
+Deck::Deck() {
+    vector<Card> temp(52);
+    cards = temp;
+    int i = 0;
+    for (Suit suit = CLUBS; suit <= SPADES; suit = Suit(suit+1)) {
+        for (Rank rank = ACE; rank <= KING; rank = Rank(rank+1)) {
+            cards[i].suit = suit;
+            cards[i].rank = rank;
+            i++;
+        }
+    }
+}
+
+void Deck::print() const {
+    for (int i = 0; i < cards.size(); i++) {
+    cout << cards[i].to_string() << endl;
+    }
+
 }
