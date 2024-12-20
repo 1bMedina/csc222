@@ -94,6 +94,8 @@ int Deck::find(const Card& card) const {
     return -1;
 }
 
-int Deck::swap_cards(int n, int m) {
-    return 1;
+void Deck::swap_cards(int a, int b) {
+    Card tmp = cards[a];
+    cards[a] = cards[b];
+    cards[b] = tmp;
 }
