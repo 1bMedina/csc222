@@ -44,5 +44,6 @@ struct Deck {
 
    void print() const;
    int find(const Card& card) const;
+   int swap_cards(int n, int m); 
 };
 

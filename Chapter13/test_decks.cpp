@@ -21,8 +21,14 @@ TEST_CASE("Test find Card in Deck") {
     Card c(HEARTS, QUEEN);
     int pos = d.find(c);
     CHECK(d.cards[pos].to_string() == "Queen of Hearts");
-    // Create non-existant card to confirm it isn't in the deck
     Card c2(NONE, QUEEN);
     int pos2 = d.find(c2);
     CHECK(pos2 == -1);
+}
+
+TEST_CASE("Test swap_cards in Deck") {
+    Deck d;
+    d.swap_cards(0, 51);
+    CHECK(d.cards[0].to_string() == "Ace of Spades");
+    CHECK(d.cards[51].to_string() == "2 of Clubs");
 }

@@ -93,3 +93,7 @@ int Deck::find(const Card& card) const {
     }
     return -1;
 }
+
+int Deck::swap_cards(int n, int m) {
+    return 1;
+}
