@@ -88,5 +88,8 @@ void Deck::print() const {
 }
 
 int Deck::find(const Card& card) const {
-    return 1;
+    for (int i = 0; i < cards.size(); i++) {
+        if (cards[i] == card) return i;
+    }
+    return -1;
 }
