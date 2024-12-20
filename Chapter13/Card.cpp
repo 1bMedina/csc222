@@ -24,6 +24,32 @@ string Card::to_string() const {
     return rank_strings[rank] + " of " + suit_strings[suit];
 }
 
+bool Card::operator<(const Card& c) const{
+    return (rank == c.rank && suit == c.suit);
+}
+
+bool Card::operator>(const Card& c) const {
+    if(c.suit > suit) return false;
+    else if(c.suit < suit) return true;
+    else return rank > c.rank;
+}
+
+bool Card::operator<=(const Card& c) const{
+    return !(*this > c);
+}
+
+bool Card::operator>=(const Card& c) const{
+    return (*this > c) || (*this == c);
+}
+
+bool Card::operator==(const Card& c2) const {
+    return (rank == c2.rank && suit == c2.suit);
+}
+
+bool Card::operator!=(const Card& c2) const {
+    return !(this->operator==(c2));
+}
+
 vector<Card> build_deck() {
     vector<Card> deck(52);
     int i = 0;
