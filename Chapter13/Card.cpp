@@ -18,7 +18,7 @@ Card::Card(Suit s, Rank r) {
 
 string Card::to_string() const {
     vector<string> suit_strings = {"None", "Clubs", "Diamonds", "Hearts", "Spades"};
-    vector<string> rank_strings = {"Joker", "Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"};
+    vector<string> rank_strings = {"Joker", "None", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace"};
                                    
     if (rank == 0) return rank_strings[rank];
     return rank_strings[rank] + " of " + suit_strings[suit];
@@ -72,18 +72,17 @@ Deck::Deck() {
     vector<Card> temp(52);
     cards = temp;
     int i = 0;
-    for (Suit suit = CLUBS; suit <= SPADES; suit = Suit(suit+1)) {
-        for (Rank rank = ACE; rank <= KING; rank = Rank(rank+1)) {
+    for (Suit suit = CLUBS; suit <= SPADES; suit = Suit(suit + 1)) {
+        for (Rank rank = TWO; rank <= ACE; rank = Rank(rank + 1)) {
             cards[i].suit = suit;
             cards[i].rank = rank;
             i++;
         }
     }
 }
-
 void Deck::print() const {
     for (int i = 0; i < cards.size(); i++) {
-    cout << cards[i].to_string() << endl;
-    }
+        cout << cards[i].to_string() << endl;
 
+}
 }
