@@ -86,3 +86,7 @@ void Deck::print() const {
 
 }
 }
+
+int Deck::find(const Card& card) const {
+    return 1;
+}

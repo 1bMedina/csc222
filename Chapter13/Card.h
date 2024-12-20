@@ -43,5 +43,6 @@ struct Deck {
    vector<Card> cards; 
 
    void print() const;
+   int find(const Card& card) const;
 };
 
