@@ -1,25 +1,13 @@
-# blah: blah.o
-# 	cc blah.o -o blah
-
-# blah.o: blah.c 
-# 	cc -c blah.c -o blah.o
-
-# blah.c:
-# 	echo "int main() { return 0; }" > blah.c
-
-#-----------------------------------------------
-
-# some_file: other_file
-# 	echo "This will always run, and run second"
-# 	touch some_file
-
-# other_file: 
-# 	echo "this will always run, and run first"
-
-#-------------------------------------------------
-
-some_file:
+files := files1 files2
+some_file: $(files)
+	echo "look at this variable: " $(files)
 	touch some_file
 
+files1:
+	touch files1
+
+files2:
+	touch files2
+
 clean:
-	rm -f some_file
+	rm -f files1 files2 some_file
