@@ -1,4 +1,15 @@
-all: f1.o f2.o 
+thing_wrong := *.o 
+thing_right := $(wildcard *.o)
 
-f1.o f2.o: 
-	echo $@
+all: one two three four
+
+one: $(thing_wrong)
+
+two: *.o
+
+three: $(thing_right)
+
+four: $(wildcard *.o)
+
+
+
