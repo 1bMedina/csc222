@@ -7,9 +7,19 @@
 # blah.c:
 # 	echo "int main() { return 0; }" > blah.c
 
-some_file: other_file
-	echo "This will always run, and run second"
+#-----------------------------------------------
+
+# some_file: other_file
+# 	echo "This will always run, and run second"
+# 	touch some_file
+
+# other_file: 
+# 	echo "this will always run, and run first"
+
+#-------------------------------------------------
+
+some_file:
 	touch some_file
 
-other_file: 
-	echo "this will always run, and run first"
+clean:
+	rm -f some_file
