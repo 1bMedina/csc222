@@ -55,3 +55,14 @@ TEST_CASE("Test can compare BigInts for inequality") {
     CHECK((i4 < i1) == true);
     CHECK((i6 < i4) == false);
 }
+
+TEST_CASE("Test can compare BigInts for equality") {
+    BigInt i1("12");
+    BigInt i2("36");
+    BigInt i3("-12");
+    BigInt i4("42");
+    CHECK((i2 != i3) == true);
+    CHECK((i1 != i1) == false);
+    CHECK((i4 >= i2) == true);
+    CHECK((i1 <= i3) == false);
+}

@@ -71,9 +71,54 @@ bool BigInt::operator<(const BigInt&b) const
     {   
         return false;
     }
-    if (digits <= b.digits){
+    if (digits >= b.digits){
         return false;
     }
 
     return false;
+}
+
+bool BigInt::operator!=(const BigInt& b) const
+{
+    return(((!negative) ? digits : "-" + digits) != ((!b.negative) ? b.digits : "-" + b.digits));
+}
+bool BigInt::operator>=(const BigInt& b) const
+{
+    if((negative == true) && (b.negative == false))
+    {
+        return false; 
+    }
+    if ((negative == b.negative && negative == true) && (digits > b.digits)) 
+    {   
+        return false;
+    }
+    if ((negative == b.negative && negative == true) && (digits < b.digits)) 
+    {   
+        return true;
+    }
+    if (digits <= b.digits){
+        return false;
+    }
+
+    return true;
+}
+bool BigInt::operator<=(const BigInt& b) const
+{
+    if((negative == true) && (b.negative == false))
+    {
+        return true; 
+    }
+    if ((negative == b.negative && negative == true) && (digits > b.digits)) 
+    {   
+        return true;
+    }
+    if ((negative == b.negative && negative == true) && (digits < b.digits)) 
+    {   
+        return false;
+    }
+    if (digits >= b.digits){
+        return false;
+    }
+
+    return true;
 }
