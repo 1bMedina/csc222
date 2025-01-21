@@ -26,9 +26,9 @@ string BigInt::to_string() const
     return (!negative) ? digits : "-" + digits;
 }
 
- bool BigInt::operator==(const BigInt& other) const
+ bool BigInt::operator==(const BigInt& b) const
  {
-    if((digits == other.digits) && (negative == other.negative))
+    if((digits ==  b.digits) && (negative == b.negative))
     {
 
         return true;
@@ -37,6 +37,21 @@ string BigInt::to_string() const
     return false;
  }
 
-bool BigInt::operator>(const BigInt& other) const{
-    return false;
+bool BigInt::operator>(const BigInt& b) const{
+    if((negative == true) && (b.negative == false))
+    {
+        return false; 
+    }
+    if ((negative == b.negative && negative == true) && (digits > b.digits)) 
+    {   
+        return false;
+    }
+    if ((negative == b.negative && negative == true) && (digits < b.digits)) 
+    {   
+        return true;
+    }
+    if (digits <= b.digits){
+        return false;
+    }
+    return true;
 }
