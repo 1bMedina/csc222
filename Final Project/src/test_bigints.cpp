@@ -29,3 +29,4 @@ TEST_CASE("Test can compare BigInts for equality") {
     CHECK((i1 == i3) == false);
     CHECK((i2 == i6) == false);
 }
+

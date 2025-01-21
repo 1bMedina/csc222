@@ -28,5 +28,11 @@ string BigInt::to_string() const
 
  bool BigInt::operator==(const BigInt& other) const
  {
+    if((digits == other.digits) && (negative == other.negative))
+    {
+
+        return true;
+    }
+ 
     return false;
  }
