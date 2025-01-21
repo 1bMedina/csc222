@@ -59,5 +59,21 @@ bool BigInt::operator>(const BigInt& b) const
 
 bool BigInt::operator<(const BigInt&b) const
 {
-    return true;
+    if((negative == true) && (b.negative == false))
+    {
+        return true; 
+    }
+    if ((negative == b.negative && negative == true) && (digits > b.digits)) 
+    {   
+        return true;
+    }
+    if ((negative == b.negative && negative == true) && (digits < b.digits)) 
+    {   
+        return false;
+    }
+    if (digits <= b.digits){
+        return false;
+    }
+
+    return false;
 }
