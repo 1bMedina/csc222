@@ -37,7 +37,8 @@ string BigInt::to_string() const
     return false;
  }
 
-bool BigInt::operator>(const BigInt& b) const{
+bool BigInt::operator>(const BigInt& b) const
+{
     if((negative == true) && (b.negative == false))
     {
         return false; 
@@ -53,5 +54,10 @@ bool BigInt::operator>(const BigInt& b) const{
     if (digits <= b.digits){
         return false;
     }
+    return true;
+}
+
+bool BigInt::operator<(const BigInt&b) const
+{
     return true;
 }
