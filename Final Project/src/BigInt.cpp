@@ -122,3 +122,8 @@ bool BigInt::operator<=(const BigInt& b) const
 
     return true;
 }
+
+BigInt BigInt::operator+(const BigInt& b) const
+{
+    return 0;
+}

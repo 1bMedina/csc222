@@ -56,7 +56,7 @@ TEST_CASE("Test can compare BigInts for inequality") {
     CHECK((i6 < i4) == false);
 }
 
-TEST_CASE("Test can compare BigInts for equality") {
+TEST_CASE("Test can compare BigInts for a couple of things") {
     BigInt i1("12");
     BigInt i2("36");
     BigInt i3("-12");
@@ -65,4 +65,14 @@ TEST_CASE("Test can compare BigInts for equality") {
     CHECK((i1 != i1) == false);
     CHECK((i4 >= i2) == true);
     CHECK((i1 <= i3) == false);
+}
+
+TEST_CASE("Test can add BigInts") {
+    BigInt i1("123");
+    BigInt i2("321");
+    BigInt i3("43210");
+    BigInt i4("9999");
+    BigInt i5("1");
+    CHECK((i1 + i2).to_string() == "444");
+    CHECK((i1 + i3).to_string() == "43333");
 }
