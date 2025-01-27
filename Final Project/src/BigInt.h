@@ -1,6 +1,9 @@
 #include <string>
 using namespace std;
 
+string incrament_digit_str(const string &);
+string sum_common_len_digit_str(const string &, const string &);
+
 class BigInt
 {
     bool negative;
@@ -21,4 +24,5 @@ class BigInt
     bool operator>=(const BigInt& b) const;
     bool operator<=(const BigInt& b) const;
     BigInt operator+(const BigInt& b) const;
+
 };

@@ -123,7 +123,72 @@ bool BigInt::operator<=(const BigInt& b) const
     return true;
 }
 
+string incrament_digit_str(const BigInt& dstring)
+{
+    string digits = dstring;
+    int p = dstring.size() - 1;
+    char nextd = digits[p] + 1;
+
+    while( nextd > '9' and p>=0){
+        digits[p] == '0';
+        nextd = digits[--p] +1
+    }
+
+    if(p >= 0)
+        digits[p]++;
+    else
+        digits = "1" + digits;
+
+    return digits;
+}
+
+string sum_common_len_digit_str(const string &a const string&b)
+{
+    string result = a;
+    char sum, carry = 0;
+
+    for(int i =a.size() -1; i >=0; i--)
+    {
+       char sum = (a[i] -'0') + (b[i] - '0') + carry;
+       result[i] = (sum % 10) + '0';
+       carry = sum / 10; 
+    }
+    return carry ? "c+" + result : result;
+}
+
 BigInt BigInt::operator+(const BigInt& b) const
 {
-    return 0;
+    if (this->digit.size() == b.digits.size())
+    {
+        string sum_str = sum_common_len_digit_str(this->digits, b.digits);
+        return (sum_str[0] == 'c') ? BigInt("1" + sum_str.substr(2) : BigInt(sum_str));
+    }
+    const BigInt *larger, *smaller;
+    int commonsize, largersize;
+    string lastpart, leading;
+
+    if(this->digits.size() > b.digits.size()) 
+    {
+        larger = this;
+        smaller = &b;
+    } else 
+    {
+        larger = &b;
+        smaller = this;
+    }
+
+    int commonsize == smaller->digit.size();
+    int largersize == larger->digit.size() - commonsize;
+
+    string lastpart == sum_common_len_digit_str(
+        smaller->digits,
+        larger->digits.subtr(largersize)
+    );
+    
+    string leading = larger->digits.substr(0, larger);
+
+    return (lastpart[0] != 'c') 
+        ? BigInt(leading + lastpart) 
+        : BigInt(incrament_digit_str(leading) + lastpart.substr(2));
 }
+
