@@ -190,3 +190,61 @@ BigInt BigInt::operator+(const BigInt& b) const
         : BigInt(incrament_digit_str(leading) + lastpart.substr(2));
 }
 
+string sub_common_len_digit_str(const string &a, const string &b)
+{
+    string results = a;
+    int borrow = 0;
+
+    for (int i = a.size() -1; i>=0; i--) 
+    {
+        int diff = (a[i] - '0') - (b[i] - '0') - borrow;
+
+        if(diff < 0) 
+        {
+            diff +=10;
+            borrow = 1;
+        } else 
+        {
+            borrow = 0;
+        }
+        
+        results[i] = '0' + diff;
+    }
+    return results;
+}
+
+BigInt BigInt::operator-(const BigInt& b) const
+{
+    if (((!negative) ? digits : "-" + digits) == ((!b.negative) ? b.digits : "-" + b.digits))
+        return BigInt(0);
+
+    if(this->digits.size() == b.digits.size())
+    {
+        string rdiff = sub_common_len_digit_str(this->digits, b.digits);
+        return BigInt(rdiff);
+    }
+
+    const BigInt *extra, *small;
+    string negpre = "";
+
+    if(this->digits.size() > b.digits.size()) 
+    {
+        extra = this;
+        small = &b;
+    } else {
+        extra = &b;
+        small = this;
+        negpre = "-";
+    }
+
+
+    string padsmall = small->digits;
+    while (extra->digits.size() > padsmall.size())
+    {
+        padsmall = "0" + padsmall;
+    }
+
+    string com_dif = sub_common_len_digit_str(extra->digits, padsmall);
+
+    return BigInt(negpre + com_dif);
+}

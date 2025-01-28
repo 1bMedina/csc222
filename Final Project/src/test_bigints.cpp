@@ -83,6 +83,7 @@ TEST_CASE("Test can subtract BigInts") {
     BigInt i3("43210");
     BigInt i4("9999");
     BigInt i5("1");
-    CHECK((i2 + i1).to_string() == "189");
-    CHECK((i3 + i2).to_string() == "42889");
+    CHECK((i2 - i1).to_string() == "198");
+    CHECK((i3 - i2).to_string() == "42889");
+    CHECK((i4-i3).to_string() == "-33211");
 }
