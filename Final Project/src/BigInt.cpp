@@ -123,7 +123,7 @@ bool BigInt::operator<=(const BigInt& b) const
     return true;
 }
 
-string incrament_digit_str(const BigInt& dstring)
+string incrament_digit_str(const string &dstring)
 {
     string digits = dstring;
     int p = dstring.size() - 1;
@@ -131,7 +131,7 @@ string incrament_digit_str(const BigInt& dstring)
 
     while( nextd > '9' and p>=0){
         digits[p] == '0';
-        nextd = digits[--p] +1
+        nextd = digits[--p] +1;
     }
 
     if(p >= 0)
@@ -142,7 +142,7 @@ string incrament_digit_str(const BigInt& dstring)
     return digits;
 }
 
-string sum_common_len_digit_str(const string &a const string&b)
+string sum_common_len_digit_str(const string &a, const string &b)
 {
     string result = a;
     char sum, carry = 0;
@@ -158,34 +158,32 @@ string sum_common_len_digit_str(const string &a const string&b)
 
 BigInt BigInt::operator+(const BigInt& b) const
 {
-    if (this->digit.size() == b.digits.size())
+    if (this->digits.size() == b.digits.size())
     {
         string sum_str = sum_common_len_digit_str(this->digits, b.digits);
-        return (sum_str[0] == 'c') ? BigInt("1" + sum_str.substr(2) : BigInt(sum_str));
+        return (sum_str[0] == 'c') ? BigInt("1" + sum_str.substr(2)) : BigInt(sum_str);
     }
-    const BigInt *larger, *smaller;
-    int commonsize, largersize;
-    string lastpart, leading;
+    const BigInt *extra, *smaller;
 
     if(this->digits.size() > b.digits.size()) 
     {
-        larger = this;
+        extra = this;
         smaller = &b;
     } else 
     {
-        larger = &b;
+        extra = &b;
         smaller = this;
     }
 
-    int commonsize == smaller->digit.size();
-    int largersize == larger->digit.size() - commonsize;
+    int commonsize = smaller->digits.size();
+    int largersize = extra->digits.size() - commonsize;
 
-    string lastpart == sum_common_len_digit_str(
+    string lastpart = sum_common_len_digit_str(
         smaller->digits,
-        larger->digits.subtr(largersize)
+        extra->digits.substr(largersize)
     );
     
-    string leading = larger->digits.substr(0, larger);
+    string leading = extra->digits.substr(0, largersize);
 
     return (lastpart[0] != 'c') 
         ? BigInt(leading + lastpart) 
