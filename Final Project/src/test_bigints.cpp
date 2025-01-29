@@ -87,3 +87,14 @@ TEST_CASE("Test can subtract BigInts") {
     CHECK((i3 - i2).to_string() == "42889");
     CHECK((i4-i3).to_string() == "-33211");
 }
+
+TEST_CASE("Test can multiply BigInts") {
+    BigInt i1("123");
+    BigInt i2("321");
+    BigInt i3("43210");
+    BigInt i4("9999");
+    BigInt i5("1");
+    CHECK((i3 * i4).to_string() == "432056790");
+    CHECK((i1 *i2).to_string() == "39483");
+    CHECK((i4 * i1).to_string() == "1229877");
+}

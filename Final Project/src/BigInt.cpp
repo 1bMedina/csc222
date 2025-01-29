@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include "BigInt.h"
+#include <vector>
 using namespace std;
 
 BigInt::BigInt()
@@ -248,3 +249,51 @@ BigInt BigInt::operator-(const BigInt& b) const
 
     return BigInt(negpre + com_dif);
 }
+
+string mult_digit_strs(const string& a, const string& b) 
+{
+    int e = a.size();
+    int f = b.size();
+    vector<int> results(e + f, 0);
+
+    for (int i = e -1; i>=0; --i)
+    {
+        for(int j = f -1; j >=0; --j)
+        {
+            int end = (a[i] - '0') * (b[j] - '0');
+            int sum = end + results[i + j + 1];
+            results[i + j + 1] = sum % 10;
+            results[i + j] += sum / 10;     
+         }
+
+    }
+
+    string resultstr;
+    bool leading = true;
+    for( int digit : results) 
+    {
+        if(digit == 0 && leading)
+            continue;
+        leading = false;
+        resultstr += (digit + '0');
+    }
+
+    return resultstr.empty() ? "0" : resultstr;
+}
+
+BigInt BigInt::operator*(const BigInt& b) const 
+{
+    if (*this == BigInt(0) || b == BigInt(0))
+        return BigInt(0);
+
+    bool resultsneg = (negative != b.negative);
+
+    // const string& a = digits;
+    // const string& q = b.digits;
+
+    string results = mult_digit_strs(digits, b.digits);
+
+    return BigInt(resultsneg ? "-" + results : results );
+
+}
+
